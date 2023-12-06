@@ -33,6 +33,20 @@ function load_last_names($fullNames) {
   $stopHere = strpos($fullName, ",");
   $lastNames[] = substr($fullName, 0, $stopHere);
   }
-return $lastNames;
+  return $lastNames;
 }
+
+
+function getCommonNames($firstNames){
+$common_first_names = array_count_values($firstNames);
+
+foreach($common_first_names as $cn => $val) {
+  if($val > 1) {
+    $cn .= " ";
+    $arrRepeatedNames[$cn] = $val;
+    }
+  } 
+  return $arrRepeatedNames;
+}
+
 ?>
